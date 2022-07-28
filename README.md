@@ -2,9 +2,11 @@
 
 **springboot+mybatisPlus的练手项目，一周完成。**
 
-**resource**：存放项目的相关资源
+**code**：https://gitee.com/tianjiangyu/springboot-takeout-project/tree/master/code
 
-**code**：存放项目的编写代码。
+**resource**：https://gitee.com/tianjiangyu/springboot-takeout-project/tree/master/resource
+
+**视频地址：**https://www.bilibili.com/video/BV13a411q753?p=1
 
 
 
