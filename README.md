@@ -14,4 +14,12 @@
 
 + 项目整体需求介绍
 + 开发环境搭建：sql + maven
-+ 
++ 前端静态界面导入 ：学会@Configuration和静态资源映射的配置
++ 登陆操作功能实现： 前端发送请求 + 后端controller + service + mapper完成功能
+
++ 退出功能实现
+
+
+
+#### Day2:
+
