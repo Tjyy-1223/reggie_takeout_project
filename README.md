@@ -33,7 +33,16 @@
 
 在Filter中编写过滤器逻辑
 
-+ 新增员工
++ 新增员工 
+
+使用save方法使用全局异常处理拦截进行异常处理（@ControllerAdvice）
+
+@ExceptionHandler(SQLIntegrityConstraintViolationException.class)
+
+@ControllerAdvice : 指定拦截那些类型的控制器;
+
+@ResponseBody: 将方法的返回值 R 对象转换为json格式的数据, 响应给页面;
+
 + 员工信息分页查询
 + 启用/禁用员工账号
 + 编辑员工信息
