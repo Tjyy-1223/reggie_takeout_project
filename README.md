@@ -25,3 +25,15 @@
 
 #### Day2:
 
++ 完善登录功能 - 使用过滤器或者拦截器判断用户是否完成登陆
+
+@WebFilter + implements Filter
+
+@ServletComponentScan
+
+在Filter中编写过滤器逻辑
+
++ 新增员工
++ 员工信息分页查询
++ 启用/禁用员工账号
++ 编辑员工信息
