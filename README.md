@@ -56,6 +56,14 @@
 
 + 启用/禁用员工账号
 
-涉及到JS对Long型数据进行处理后丢失精度的问题
+涉及到JS对Long型数据进行处理后丢失精度的问题 
+
+引入JacksonObjectMapper
+
+在WebMvcConfig中重写方法extendMessageConverters
 
 + 编辑员工信息
+
+
+
+#### Day3:
