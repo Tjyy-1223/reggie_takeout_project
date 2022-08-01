@@ -16,8 +16,13 @@
 
 + 项目整体需求介绍
 + 开发环境搭建：sql + maven
-+ 前端静态界面导入 ：学会@Configuration和静态资源映射的配置
-+ 登陆操作功能实现： 前端发送请求 + 后端controller + service + mapper完成功能
++ 前端静态界面导入 ：
+
+学会@Configuration和静态资源映射的配置
+
++ 登陆操作功能实现： 
+
+前端发送请求 + 后端controller + service + mapper完成功能
 
 + 退出功能实现
 
@@ -43,11 +48,14 @@
 
 @ResponseBody: 将方法的返回值 R 对象转换为json格式的数据, 响应给页面;
 
+新增Id不按序排列时，注意修改navicat中的设计表 - 自动递增属性值
+
 + 员工信息分页查询
 
-使用mybatisPlus的分页插件
-
-
+学会使用mybatisPlus的分页插件 @Configuration + @Bean ->获得mybatisPlusInterceptor
 
 + 启用/禁用员工账号
+
+涉及到JS对Long型数据进行处理后丢失精度的问题
+
 + 编辑员工信息
