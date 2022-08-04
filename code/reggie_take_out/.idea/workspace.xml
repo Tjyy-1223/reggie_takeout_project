@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03d90efd-f7bb-417a-894e-b45f0f69be83" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../README.md" afterDir="false" />
-    </list>
+    <list default="true" id="03d90efd-f7bb-417a-894e-b45f0f69be83" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,7 +56,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/tjyy/reggie/common" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/tjyy/reggie/entity" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -71,9 +69,12 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/java/com/tjyy/reggie/common" />
       <recent name="$PROJECT_DIR$/src/main/java/com/tjyy/reggie/entity" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/tjyy/reggie/common" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.tjyy.reggie.service" />
     </key>
   </component>
   <component name="RunManager">
@@ -107,7 +108,7 @@
       <workItem from="1658988668215" duration="21000" />
       <workItem from="1658988718491" duration="9998000" />
       <workItem from="1659233569170" duration="18719000" />
-      <workItem from="1659597916421" duration="12480000" />
+      <workItem from="1659597916421" duration="17819000" />
     </task>
     <servers />
   </component>
@@ -132,6 +133,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/tjyy/reggie/common/MyMetaObjectHandler.java</url>
           <line>36</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/tjyy/reggie/service/impl/CategoryServiceImpl.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
