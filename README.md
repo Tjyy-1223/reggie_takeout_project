@@ -104,6 +104,8 @@ DishServiceImpl中实现方法saveWithFlavor
 
 + 菜品修改 - 与之前的update操作类似
 
+**上述的新增菜品、分页查询、菜品修改用到了多表联查的知识，值的学习。**
+
 
 
 

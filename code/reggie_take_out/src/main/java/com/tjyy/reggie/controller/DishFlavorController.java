@@ -39,6 +39,26 @@ public class DishFlavorController {
     }
 
 
+    @GetMapping("/{id}")
+    public R<DishDto> getByIdWithFlavor(@PathVariable Long id){
+        DishDto dishDto = dishService.getByIdWithFlavor(id);
+        return R.success(dishDto);
+    }
+
+
+    /**
+     *  修改菜品
+     * @param dishDto
+     * @return
+     */
+    @PutMapping
+    public R<String> update(@RequestBody DishDto dishDto){
+        log.info(dishDto.toString());
+        dishService.updateWithFlavor(dishDto);
+        return R.success("修改菜品成功");
+    }
+
+
     @GetMapping("/page")
     public R<Page> page(int page,int pageSize,String name){
         //构造分页器对象
