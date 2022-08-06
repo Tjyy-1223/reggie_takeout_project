@@ -96,7 +96,9 @@
 
 + 菜品新增
 
+DishServiceImpl中实现方法saveWithFlavor
 
+在引导类上加注解 @EnableTransactionManagement
 
 + 菜品分页查询
 

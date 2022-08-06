@@ -16,7 +16,7 @@ mybatis-plus:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   global-config:
     db-config:
-      id-type: AUTO
+      id-type: ASSIGN_ID
 
 reggie:
   path: /Users/tianjiangyu/MyStudy/Java体系/08_项目-瑞吉外卖/demo/resource/img/
