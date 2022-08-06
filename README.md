@@ -100,11 +100,13 @@ DishServiceImpl中实现方法saveWithFlavor
 
 在引导类上加注解 @EnableTransactionManagement
 
-+ 菜品分页查询
++ 菜品分页查询 - 与之前的page类似，多了一个图片栏目的设计
+
++ 菜品修改 - 与之前的update操作类似
 
 
 
-+ 菜品修改
+
 
 
 

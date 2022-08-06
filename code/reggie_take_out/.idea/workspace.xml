@@ -130,7 +130,7 @@
       <workItem from="1658988718491" duration="9998000" />
       <workItem from="1659233569170" duration="18719000" />
       <workItem from="1659597916421" duration="18814000" />
-      <workItem from="1659750656155" duration="14407000" />
+      <workItem from="1659750656155" duration="17556000" />
     </task>
     <servers />
   </component>
@@ -160,6 +160,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/tjyy/reggie/service/impl/CategoryServiceImpl.java</url>
           <line>36</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/tjyy/reggie/controller/DishFlavorController.java</url>
+          <line>60</line>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
