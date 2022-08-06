@@ -17,3 +17,6 @@ mybatis-plus:
   global-config:
     db-config:
       id-type: AUTO
+
+reggie:
+  path: /Users/tianjiangyu/MyStudy/Java体系/08_项目-瑞吉外卖/demo/resource/img/
