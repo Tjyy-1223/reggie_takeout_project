@@ -42,7 +42,7 @@ public class SetmealController {
 
 
     @GetMapping("/page")
-    public R<Page> page(int page,int pageSize,String name){
+    public R<Page> page(int page,int pageSize,String name) {
         Page<Setmeal> pageInfo = new Page<>(page,pageSize);
         Page<SetmealDto> dtoPage = new Page<>();
 
@@ -71,5 +71,14 @@ public class SetmealController {
 
         dtoPage.setRecords(list);
         return R.success(dtoPage);
+    }
+
+
+
+    @DeleteMapping
+    public R<String> delete(@RequestParam List<Long> ids){
+        log.info("ids:{}",ids);
+        setmealService.removeWithDish(ids);
+        return R.success("套餐数据删除成功");
     }
 }
