@@ -96,4 +96,21 @@ public class DishFlavorController {
         dishDtoPage.setRecords(list);
         return R.success(dishDtoPage);
     }
+
+
+    /***
+     * 根据条件查询对应的菜品数据
+     * @param dish
+     * @return
+     */
+    @GetMapping("/list")
+    public R<List<Dish>> list(Dish dish){
+        LambdaQueryWrapper<Dish> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(dish.getCategoryId() != null,Dish::getCategoryId,dish.getCategoryId());
+        queryWrapper.orderByAsc(Dish::getSort).orderByDesc(Dish::getUpdateTime);
+
+        List<Dish> list = dishService.list(queryWrapper);
+        return R.success(list);
+    }
+
 }
