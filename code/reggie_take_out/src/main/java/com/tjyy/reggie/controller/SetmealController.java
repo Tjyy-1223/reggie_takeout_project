@@ -1,16 +1,22 @@
 package com.tjyy.reggie.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.tjyy.reggie.common.R;
 import com.tjyy.reggie.dto.SetmealDto;
+import com.tjyy.reggie.entity.Category;
+import com.tjyy.reggie.entity.Setmeal;
+import com.tjyy.reggie.service.CategoryService;
 import com.tjyy.reggie.service.SetmealDishService;
 import com.tjyy.reggie.service.SetmealService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @Slf4j
@@ -23,11 +29,47 @@ public class SetmealController {
     @Autowired
     private SetmealDishService setmealDishService;
 
+    @Autowired
+    private CategoryService categoryService;
+
 
     @PostMapping
     public R<String> save(@RequestBody SetmealDto setmealDto){
         log.info("套餐信息{}",setmealDto);
         setmealService.saveWithDish(setmealDto);
         return R.success("新增套餐成功");
+    }
+
+
+    @GetMapping("/page")
+    public R<Page> page(int page,int pageSize,String name){
+        Page<Setmeal> pageInfo = new Page<>(page,pageSize);
+        Page<SetmealDto> dtoPage = new Page<>();
+
+        LambdaQueryWrapper<Setmeal> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.like(name != null,Setmeal::getName,name);
+        queryWrapper.orderByDesc(Setmeal::getUpdateTime);
+        setmealService.page(pageInfo,queryWrapper);
+
+        //对象拷贝
+        BeanUtils.copyProperties(pageInfo,dtoPage,"records");
+        List<Setmeal> records = pageInfo.getRecords();
+        List<SetmealDto> list = new ArrayList<>();
+
+        for (Setmeal record : records) {
+            SetmealDto setmealDto = new SetmealDto();
+            //对象拷贝
+            BeanUtils.copyProperties(record,setmealDto);
+            Long categoryId = record.getCategoryId();
+            Category category = categoryService.getById(categoryId);
+
+            if(category != null){
+                setmealDto.setCategoryName(category.getName());
+            }
+            list.add(setmealDto);
+        }
+
+        dtoPage.setRecords(list);
+        return R.success(dtoPage);
     }
 }
