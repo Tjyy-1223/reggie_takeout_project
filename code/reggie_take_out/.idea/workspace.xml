@@ -58,7 +58,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/tjyy/reggie/entity" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/tjyy/reggie/utils" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -71,11 +71,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/tjyy/reggie/utils" />
       <recent name="$PROJECT_DIR$/src/main/java/com/tjyy/reggie/entity" />
       <recent name="$PROJECT_DIR$/src/main/java/com/tjyy/reggie/dto" />
       <recent name="$PROJECT_DIR$/src/main/resources/backend/page/demo" />
       <recent name="$PROJECT_DIR$/src/main/java/com/tjyy/reggie/common" />
-      <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.tjyy.reggie.service" />
@@ -131,7 +131,7 @@
       <workItem from="1659233569170" duration="18719000" />
       <workItem from="1659597916421" duration="18814000" />
       <workItem from="1659750656155" duration="21611000" />
-      <workItem from="1659845681335" duration="9816000" />
+      <workItem from="1659845681335" duration="13390000" />
     </task>
     <servers />
   </component>
