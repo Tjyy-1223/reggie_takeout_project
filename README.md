@@ -112,9 +112,7 @@ DishServiceImpl中实现方法saveWithFlavor
 
 #### Day5:套餐管理业务开发
 
-+ 新增套餐
-
-
++ 新增套餐 - 向套餐表和套餐关系表中添加关系
 
 + 套餐分页查询
 
