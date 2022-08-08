@@ -133,6 +133,6 @@ DishServiceImpl中实现方法saveWithFlavor
 #### Day6: 手机点单功能
 
 + 用户地址薄功能
-+ 菜品展示
++ 菜品展示 - 即完成page功能
 + 购物车
 + 下单功能

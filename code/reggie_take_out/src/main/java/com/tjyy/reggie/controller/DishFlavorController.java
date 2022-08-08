@@ -6,6 +6,7 @@ import com.tjyy.reggie.common.R;
 import com.tjyy.reggie.dto.DishDto;
 import com.tjyy.reggie.entity.Category;
 import com.tjyy.reggie.entity.Dish;
+import com.tjyy.reggie.entity.DishFlavor;
 import com.tjyy.reggie.service.CategoryService;
 import com.tjyy.reggie.service.DishFlavorService;
 import com.tjyy.reggie.service.DishService;
@@ -104,14 +105,38 @@ public class DishFlavorController {
      * @return
      */
     @GetMapping("/list")
-    public R<List<Dish>> list(Dish dish){
+    public R<List<DishDto>> list(Dish dish){
         LambdaQueryWrapper<Dish> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.eq(dish.getCategoryId() != null,Dish::getCategoryId,dish.getCategoryId());
         queryWrapper.eq(Dish::getStatus,1);
         queryWrapper.orderByAsc(Dish::getSort).orderByDesc(Dish::getUpdateTime);
 
         List<Dish> list = dishService.list(queryWrapper);
-        return R.success(list);
+        List<DishDto> dishDtoList = new ArrayList<>();
+
+        for (Dish record : list) {
+            DishDto dishDto = new DishDto();
+            BeanUtils.copyProperties(record,dishDto);
+
+            Long categoryId = record.getCategoryId();//分类id
+            Long dishId = record.getId();
+
+            //根据id查询分类对象
+            Category category = categoryService.getById(categoryId);
+            if(category != null){
+                String categoryName = category.getName();
+                dishDto.setCategoryName(categoryName);
+            }
+
+            LambdaQueryWrapper<DishFlavor> queryWrapper1 = new LambdaQueryWrapper<>();
+            queryWrapper1.eq(DishFlavor::getDishId,dishId);
+            List<DishFlavor> dishFlavorList = dishFlavorService.list(queryWrapper1);
+            dishDto.setFlavors(dishFlavorList);
+
+            dishDtoList.add(dishDto);
+        }
+
+        return R.success(dishDtoList);
     }
 
 }
