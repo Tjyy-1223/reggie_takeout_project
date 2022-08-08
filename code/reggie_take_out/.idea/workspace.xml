@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03d90efd-f7bb-417a-894e-b45f0f69be83" name="Changes" comment="" />
+    <list default="true" id="03d90efd-f7bb-417a-894e-b45f0f69be83" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../README.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -56,7 +58,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/tjyy/reggie/controller" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/tjyy/reggie/entity" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -69,8 +71,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/java/com/tjyy/reggie/controller" />
       <recent name="$PROJECT_DIR$/src/main/java/com/tjyy/reggie/entity" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/tjyy/reggie/controller" />
       <recent name="$PROJECT_DIR$/src/main/java/com/tjyy/reggie/utils" />
       <recent name="$PROJECT_DIR$/src/main/java/com/tjyy/reggie/dto" />
       <recent name="$PROJECT_DIR$/src/main/resources/backend/page/demo" />
@@ -129,7 +131,7 @@
       <workItem from="1659233569170" duration="18719000" />
       <workItem from="1659597916421" duration="18814000" />
       <workItem from="1659750656155" duration="21611000" />
-      <workItem from="1659845681335" duration="24076000" />
+      <workItem from="1659845681335" duration="27975000" />
     </task>
     <servers />
   </component>

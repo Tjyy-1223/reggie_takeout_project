@@ -134,5 +134,8 @@ DishServiceImpl中实现方法saveWithFlavor
 
 + 用户地址薄功能
 + 菜品展示 - 即完成page功能
-+ 购物车
++ 购物车 - 添加、查询、删除购物车
 + 下单功能
+
+
+
