@@ -147,3 +147,10 @@ DishServiceImpl中实现方法saveWithFlavor
 
 
 
+
+
+## 第二阶段：Git
+
++ 介绍什么是Git
++ Git的常用指令
++ IDEA中使用Git
