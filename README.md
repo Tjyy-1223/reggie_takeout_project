@@ -151,6 +151,81 @@ DishServiceImpl中实现方法saveWithFlavor
 
 ## 第二阶段：Git
 
-+ 介绍什么是Git
-+ Git的常用指令
-+ IDEA中使用Git
+#### Git的常用指令
+
++ 设置用户信息
+
+```git
+git config --global user.name “itcast”
+git config --global user.email “hello@itcast.cn”
+```
+
++ 查看配置信息
+
+```
+git config --list
+```
+
++ 仓库初始化
+
+```
+本地初始化 ： git init
+从远程仓库克隆： git clone 【远程Git仓库地址】
+```
+
++ 本地仓库常用指令
+
+```
+git status		查看文件状态
+git add				将文件的修改加入暂存区
+git reset			将暂存区的文件取消暂存或者是切换到指定版本
+git commit		将暂存区的文件修改提交到版本库
+git log 			查看日志
+```
+
++ 远程仓库常用指令
+
+```
+ git remote -v	查看远程仓库
+ git remote add	添加远程仓库
+ git clone			从远程仓库克隆
+ git pull				从远程仓库拉取  fatal: refusing to merge unrelated histories 加入参数--allow-unrelated-histories
+ git push				推送到远程仓库
+```
+
++ Git分支常用指令
+
+```
+git branch		列出所有本地分支
+git branch -r	列出所有远程分支
+git branch -a	列出所有本地分支和远程分支
+
+git branch [name]						创建分支
+git checkout [name]					切换分支
+git push [shortName] [name]	推送至远程仓库分支
+git merge [name]						合并分支
+conflict：在文件中手动处理 commit -i
+```
+
++ Git标签操作
+
+```
+git tag													列出已有的标签
+git tag [name]									创建标签
+git push [shortName] [name]			将标签推送至远程仓库
+git checkout -b [branch] [name]	检出标签
+```
+
+
+
+#### IDEA中使用Git
+
++ 在IDEA中对Git进行配置
+
+```
+command + shift + G 显示隐藏目录
+```
+
++ 初始化Git仓库
+
++ 本地仓库操作、远程仓库操作、分支操作
