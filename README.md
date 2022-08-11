@@ -229,3 +229,158 @@ command + shift + G 显示隐藏目录
 + 初始化Git仓库
 
 + 本地仓库操作、远程仓库操作、分支操作
+
+
+
+
+
+## 第三阶段：Linux
+
+#### Linux简介
+
++ 主流操作系统：桌面操作系统、服务器操作系统、移动设备操作系统、嵌入式操作系统
++ Linux发展历史
+
+#### Linux安装
+
+vmware fusion + centos7
+
+https://blog.csdn.net/qq_24950043/article/details/122517521
+
++ 网卡设置
++ SSH设置
+
+```
+ssh root@192.168.3.61
+```
+
++ Linux目录结构
+
+#### Linux常用命令
+
++ Linux命令初体验
+
+```
+ls [目录名]				list											查看当前目录下的内容
+pwd 							print work directory 			查看当前所在目录
+cd [目录名]				change directory					切换目录
+touch [文件名]			touch											如果文件不存在,创建文件
+mkdir [目录名]			make directory						创建目录
+rm [文件名]				remove										删除指定文件
+
+乱码：
+echo 'LANG="en_US.UTF-8"' >> /etc/profile
+source /etc/profile
+```
+
++ 文件目录操作命令
+
+```
+ls	显示指定目录下的内容 
+
+
+-a 显示所有文件及目录 (. 开头的隐藏文件也会列出)
+-l 除文件名称外，同时将文件型态(d表示目录，-表示文件)、权限、拥有者、文件大小等信息详细列出
+
+
+ls -al 查看当前目录的所有文件及目录详细信息
+ls -al /etc 查看/etc目录下所有文件及目录详细信息 
+ll 查看当前目录文件及目录的详细信息
+```
+
+```
+作用: 用于切换当前工作目录，即进入指定目录 
+语法: cd [dirName]
+
+
+特殊说明:
+~ 表示用户的home目录
+. 表示目前所在的目录
+.. 表示目前目录位置的上级目录
+
+
+举例:
+cd .. 切换到当前目录的上级目录 
+cd ~ 切换到用户的home目录
+cd /usr/local 切换到/usr/local目录
+```
+
+```
+作用: 用于显示文件内容 语法: cat [-n] fileName
+说明:
+-n: 由1开始对所有输出的行数编号
+举例:
+cat /etc/profile 查看/etc目录下的profile文件内容
+```
+
+```
+rm -r itcast/			删除名为itcast的目录和目录中所有文件，删除前需确认
+rm -rf itcast/		无需确认，直接删除名为itcast的目录和目录中所有文件
+rm -f hello.txt		无需确认，直接删除hello.txt文件
+```
+
++ 拷贝移动命令
+
+```
+cp hello.txt itcast/				将hello.txt复制到itcast目录中
+cp hello.txt ./hi.txt				将hello.txt复制到当前目录，并改名为hi.txt
+cp -r itcast/ ./itheima/ 		将itcast目录和目录下所有文件复制到itheima目录下
+cp -r itcast/* ./itheima/		将itcast目录下所有文件复制到itheima目录下
+```
+
+```
+mv hello.txt hi.txt							将hello.txt改名为hi.txt
+mv hi.txt itheima/							将文件hi.txt移动到itheima目录中
+mv hi.txt itheima/hello.txt 		将hi.txt移动到itheima目录中，并改名为hello.txt
+mv itcast/ itheima/							如果itheima目录不存在，将itcast目录改名为itheima
+mv itcast/ itheima/							如果itheima目录存在，将itcast目录移动到itheima目录中
+```
+
++ 打包压缩命令
+
+```
+作用: 对文件进行打包、解包、压缩、解压
+语法: tar [-zcxvf] fileName [files]
+包文件后缀为.tar表示只是完成了打包，并没有压缩 包文件后缀为.tar.gz表示打包的同时还进行了压缩
+
+z代表的是gzip，通过gzip命令处理文件，gzip可以对文件压缩或者解压 
+c代表的是create，即创建新的包文件 
+x代表的是extract，实现从包文件中还原文件 
+v代表的是verbose，显示命令的执行过程 
+f代表的是file，用于指定包文件的名称
+
+
+tar -cvf hello.tar ./*								将当前目录下所有文件打包，打包后的文件名为hello.tar
+tar -zcvf hello.tar.gz ./*						将当前目录下所有文件打包并压缩，打包后的文件名为hello.tar.gz
+tar -xvf hello.tar										将hello.tar文件进行解包，并将解包后的文件放在当前目录
+tar -zxvf hello.tar.gz								将hello.tar.gz文件进行解压，并将解压后的文件放在当前目录
+tar -zxvf hello.tar.gz -C /usr/local	将hello.tar.gz文件进行解压，并将解压后的文件放在/usr/local目录
+```
+
++ 文本编辑命令
+
++ 查找命令
+
+```
+作用: 在指定目录下查找文件
+语法: find dirName -option fileName 
+
+find . –name "*.java" 						在当前目录及其子目录下查找.java结尾文件
+find /itcast -name "*.java" 			在/itcast目录及其子目录下查找.java结尾的文件
+```
+
+```
+作用: 从指定文件中查找指定的文本内容 
+语法: grep word fileName
+
+grep Hello HelloWorld.java 				查找HelloWorld.java文件中出现的Hello字符串的位置
+grep hello *.java 								查找当前目录中所有.java结尾的文件中包含hello字符串的位置
+```
+
+
+
+#### Linux软件安装
+
+
+
+#### 项目部署
