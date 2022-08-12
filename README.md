@@ -377,10 +377,37 @@ grep Hello HelloWorld.java 				查找HelloWorld.java文件中出现的Hello字�
 grep hello *.java 								查找当前目录中所有.java结尾的文件中包含hello字符串的位置
 ```
 
-
-
 #### Linux软件安装
 
++ 软件安装方式
++ 安装jdk - jdk-8u171-linux-x64
++ 安装maven - apache-maven-3.5.4-bin
 
++ 安装Tomcat - apache-tomcat-7.0.57
+
+```
+systemctl stop firewalld 防火墙
+
+systemctl start firewalld
+firewall-cmd --zone=public --add-port=8080/tcp --permanent
+firewall-cmd --reload
+```
+
++ 安装MySQL - mysql-5.7.25-1.el7.x86_64.rpm-bundle
+
+```
+yum install openssl-devel -y
+去官网下载mysql 采用redhat版本
+
+systemctl status mysqld
+systemctl start mysqld
+systemctl stop mysqld
+
+netstat -tunlp									查看已经启动的服务
+netstat -tunlp | grep mysql			查看mysql的服务信息
+ps –ef | grep mysql							查看mysql进程
+```
+
++ 安装LRZSZ
 
 #### 项目部署
