@@ -413,9 +413,34 @@ ps –ef | grep mysql							查看mysql进程
 #### 项目部署
 
 + 手动部署项目
+
+```
+&:让命令在后台运行
+nohup java -jar boot工程.jar &> hello.log &
+上述指令的含义为: 后台运行 java -jar 命令，并将日志输出到hello.log文件
+
+nohup java -jar helloworld-1.0-SNAPSHOT.jar &> hello.log &
+ps ef|grep java
+kill -9 2240
+```
+
 + 自动部署项目
 
+借助git、maven打包、编写并运行shell脚本
 
++ Linux权限
+
+```
+chmod (英文全拼:change mode)命令是控制用户对文件的权限的命令
+Linux中的权限分为三种 :读(r)、写(w)、执行(x)
+Linux文件权限分为三级 : 文件所有者(Owner)、用户组(Group)、其它用户 (Other Users)
+只有文件的所有者和超级用户可以修改文件或目录的权限
+要执行Shell脚本需要有对此脚本文件的执行权限(x)，如果没有则不能执行
+
+chmod 777 bootStart.sh			为所有用户授予读、写、执行权限
+chmod 755 bootStart.sh			为文件拥有者授予读、写、执行权限，同组用户和其他用户授予读、执行权限
+chmod 210 bootStart.sh			为文件拥有者授予写权限，同组用户授予执行权限，其他用户没有任何权限
+```
 
 
 
