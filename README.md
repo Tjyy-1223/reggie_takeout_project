@@ -243,7 +243,7 @@ command + shift + G 显示隐藏目录
 
 #### Linux安装
 
-vmware fusion + centos7
+vmware fusion + centos7（好用）
 
 https://blog.csdn.net/qq_24950043/article/details/122517521
 
@@ -444,3 +444,108 @@ chmod 210 bootStart.sh			为文件拥有者授予写权限，同组用户授予�
 
 
 
+
+
+## 第四阶段：Redis
+
+#### Redis入门
+
++ Redis简介
+
+Redis是一个开源的内存中的数据结构存储系统，它可以用作：数据库、缓存和消息中间件。
+
+应用场景：缓存、任务队列、消息队列以及分布式锁
+
++ 下载与安装
+
+Mac:https://blog.csdn.net/qq_43783527/article/details/124961930?spm=1001.2101.3001.6650.13&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EESLANDING%7Edefault-13-124961930-blog-114279202.pc_relevant_multi_platform_whitelistv4eslandingctr2&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EESLANDING%7Edefault-13-124961930-blog-114279202.pc_relevant_multi_platform_whitelistv4eslandingctr2&utm_relevant_index=17
+
+linux(arm):https://icode.best/i/05202843307665
+
+解决linux中gcc版本过低的问题：https://www.cnblogs.com/shook/p/12883742.html
+
++ Redis服务启动与停止
+
+```
+mac:cd /Users/tianjiangyu/config/redis/redis-stack-server-6.2.4-v1.monterey.arm64/bin
+启动服务端：./redis-server
+启动和关闭客户端：./redis-cli ./redis-cli shutdown
+
+linux: 带着配置文件启动可以进行后台启动
+/usr/local/redis-6.0.9/src/redis-server /usr/local/redis-6.0.9/redis.conf
+
+后台运行：
+src/redis-cli -h localhost -p 6379 -a 991116
+```
+
+#### 数据类型
+
+Redis存储的是key-value结构的数据，其中key是字符串类型，value有5种常用的数据类型：String,hash,list,set,sorted set
+
+#### 常用命令
+
++ 字符串string操作命令
+
+```
+SET key value									设置指定key的值
+GET key												获取指定key的值
+SETEX key seconds value				设置指定key的值，并将 key 的过期时间设为 seconds 秒
+SETNX key value								只有在 key 不存在时设置 key 的值
+```
+
++ 哈希hash操作命令
+
+```
+HSET key field value 	将哈希表 key 中的字段 field 的值设为 value
+HGET key field 				获取存储在哈希表中指定字段的值
+HDEL key field				删除存储在哈希表中的指定字段
+HKEYS key 						获取哈希表中所有字段
+HVALS key 						获取哈希表中所有值
+HGETALL key 					获取在哈希表中指定 key 的所有字段和值
+```
+
++ 列表list操作命令
+
+```
+LPUSH key value1 [value2] 	将一个或多个值插入到列表头部
+LRANGE key start stop 			获取列表指定范围内的元素
+RPOP key 										移除并获取列表最后一个元素
+LLEN key 										获取列表长度
+BRPOP key1 [key2 ] timeout 	移出并获取列表的最后一个元素， 如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止
+```
+
++ 集合 set 操作命令
+
+```
+SADD key member1 [member2] 		向集合添加一个或多个成员
+SMEMBERS key 									返回集合中的所有成员
+SCARD key 										获取集合的成员数
+SINTER key1 [key2] 						返回给定所有集合的交集
+SUNION key1 [key2] 						返回所有给定集合的并集
+SDIFF key1 [key2] 						返回给定所有集合的差集
+SREM key member1 [member2] 		移除集合中一个或多个成员
+```
+
++ 有序集合 sorted set 操作命令
+
+```
+每个元素都会关联一个double类型的分数(score),redis正是通过分数来为集合中的成员进行从小到大排序。
+
+
+ZADD key score1 member1 [score2 member2] 	向有序集合添加一个或多个成员，或者更新已存在成员的						分数
+ZRANGE key start stop [WITHSCORES] 				通过索引区间返回有序集合中指定区间内的成员
+ZINCRBY key increment member 							有序集合中对指定成员的分数加上增量 increment
+ZREM key member [member ...] 							移除有序集合中的一个或多个成员
+```
+
++ 通用命令
+
+```
+KEYS pattern 		查找所有符合给定模式( pattern)的 key 
+EXISTS key 			检查给定 key 是否存在
+TYPE key 				返回 key 所储存的值的类型
+TTL key 				返回给定 key 的剩余生存时间(TTL, time to live)，以秒为单位
+DEL key 				该命令用于在 key 存在时删除 key
+```
+
+#### 在JAVA中操作Redis
