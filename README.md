@@ -549,3 +549,16 @@ DEL key 				该命令用于在 key 存在时删除 key
 ```
 
 #### 在JAVA中操作Redis
+
+在Spring Boot 项目中，可以使用Spring Data Redis来简化Redis操作。
+
+```
+Spring Data Redis中提供了一个高度封装的类：RedisTemplate，针对jedis客户端中大量api进行了归类封装,将同一类型操作封装为operation接口，具体分类如下：
+
+ValueOperations：简单K-V操作
+SetOperations：set类型数据操作
+ZSetOperations：zset类型数据操作
+HashOperations：针对map类型的数据操作
+ListOperations：针对list类型的数据操作
+```
+
