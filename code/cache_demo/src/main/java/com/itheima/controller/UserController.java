@@ -69,13 +69,16 @@ public class UserController {
      * value:缓存的名称，每个缓存名称下面可以有多个key
      * key:缓存的key
      */
-    @Cacheable(value = "userCache",key = "#id")
+    @Cacheable(value = "userCache",key = "#id",unless = "#result==null")
     @GetMapping("/{id}")
     public User getById(@PathVariable Long id){
         User user = userService.getById(id);
         return user;
     }
 
+
+
+    @Cacheable(value = "userCache",key = "#user.id + '_' + #user.name")
     @GetMapping("/list")
     public List<User> list(User user){
         LambdaQueryWrapper<User> queryWrapper = new LambdaQueryWrapper<>();
