@@ -589,6 +589,10 @@ ListOperations：针对list类型的数据操作
 @Cacheable				在方法执行前spring先查看缓存中是否有数据，如果有数据，则直接返回缓存数据;若 没有数据，调用方法并将方法返回值放到缓存中
 @CachePut					将方法的返回值放到缓存中
 @CacheEvict				将一条或多条数据从缓存中删除
+
+
+谢谢，我已经解决了无法注入的问题。我在application.properties里面加了一个配置
+spring.cache.jcache.provider=org.ehcache.jsr107.EhcacheCachingProvider
 ```
 
 + 缓存套餐数据
