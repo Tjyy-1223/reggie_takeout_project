@@ -7,9 +7,12 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.SQLIntegrityConstraintViolationException;
 
-@ControllerAdvice(annotations = {RestController.class, Controller.class})
+//@ControllerAdvice(annotations = {RestController.class, Controller.class})
+@ControllerAdvice
 @ResponseBody
 @Slf4j
 public class GlobalExceptionHandler {
@@ -29,5 +32,11 @@ public class GlobalExceptionHandler {
     public R<String> exceptionHandler(CustomException ex){
         log.error(ex.getMessage());
         return R.error(ex.getMessage());
+    }
+
+
+    @ExceptionHandler(IOException.class)
+    public void exceptionHandler(Exception ex){
+        log.error("发生异常");
     }
 }
