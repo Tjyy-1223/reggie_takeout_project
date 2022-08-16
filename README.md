@@ -604,3 +604,7 @@ spring.cache.jcache.provider=org.ehcache.jsr107.EhcacheCachingProvider
 
 + 缓存套餐数据
 
+利用上述学习的 SpringCache框架 + Redis数据库，完成缓存套餐数据的优化任务。
+
+
+

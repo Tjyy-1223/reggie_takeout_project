@@ -14,6 +14,9 @@ spring:
     port: 6379
     password: root@991116
     database: 0
+  cache:
+    redis:
+      time-to-live: 18000
 
 
 mybatis-plus:
