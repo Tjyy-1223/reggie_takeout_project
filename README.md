@@ -576,11 +576,11 @@ ListOperations：针对list类型的数据操作
 
 + 缓存短信验证码 
 
-+ 缓存菜品信息 
++ 缓存菜品信息
 
 上面两个方法学习了如何使用RedisTemplate
 
-+ SpringCache 
++ SpringCache
 
 **Spring Cache**是一个框架，实现了基于注解的缓存功能，只需要简单地加一个注解，就能实现缓存功能，大大简化我们在业务中操作缓存的代码，CacheManager是Spring提供的各种缓存技术抽象接口。
 
