@@ -21,8 +21,8 @@ import java.util.List;
 public class UserController {
 
 //    @Autowired
-    @Resource
-    private CacheManager cacheManager;
+//    @Resource
+//    private CacheManager cacheManager;
 
     @Autowired
     private UserService userService;

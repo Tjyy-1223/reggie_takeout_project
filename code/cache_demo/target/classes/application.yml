@@ -10,9 +10,14 @@ spring:
       url: jdbc:mysql://localhost:3306/cache_demo?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
       username: root
       password: 991116
+  redis:
+    host: localhost
+    port: 6379
+    password: root@991116
+    database: 0
   cache:
-    jcache:
-      provider: org.ehcache.jsr107.EhcacheCachingProvider
+    redis:
+      time-to-live: 180000
 
 
 mybatis-plus:

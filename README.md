@@ -595,5 +595,12 @@ ListOperations：针对list类型的数据操作
 spring.cache.jcache.provider=org.ehcache.jsr107.EhcacheCachingProvider
 ```
 
+```
+在使用上述默认的ConcurrentHashMap做缓存时，服务重启之后，之前缓存的数据就全部丢失了，操作起来并不友好。在项目中使用，我们会选择使用redis来做缓存，主要需要操作以下几步:
+
+1）引入pom文件
+2）配置application.yml
+```
+
 + 缓存套餐数据
 
