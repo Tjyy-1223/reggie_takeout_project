@@ -608,3 +608,10 @@ spring.cache.jcache.provider=org.ehcache.jsr107.EhcacheCachingProvider
 
 
 
+#### Day2: Mysql主从复制
+
++ 读写分离案例 
++ 项目实现读写分离 
++ Nginx-概述
++  Nginx-命令 
++ Nginx-应用
