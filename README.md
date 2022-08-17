@@ -608,10 +608,70 @@ spring.cache.jcache.provider=org.ehcache.jsr107.EhcacheCachingProvider
 
 
 
+#### 克隆虚拟机之后需要修改mac地址
+
 #### Day2: Mysql主从复制
 
+当前，MySQL服务器只有一台，那么就可能会存在如下问题:
+
+1）读和写所有压力都由一台数据库承担，压力大
+ 2）数据库服务器磁盘损坏则数据丢失，单点故障
+
 + 读写分离案例 
-+ 项目实现读写分离 
+
+我们可以准备两台MySQL，一台主(Master)服务器，一台从(Slave)服务器，主库的数据变更，需要同步到从库中(主从复制)。而用户在访问我们项目时，如果是写操作(insert、update、delete)，则 直接操作主库;如果是读(select)操作，则直接操作从库(在这种读写分离的结构中，从库是可以有多个的)，这种结构我们称为读写分离 。
+
++ **Mysql主从复制**实现读写分离 
+
+MySQL主从复制是MySQL数据库自带功能，无需借助第三方工具。
+
+**MySQL**复制过程分成三步:
+
+1）MySQL master 将数据变更写入二进制日志( binary log)
+
+2）slave将master的binary log拷⻉到它的中继日志(relay log) 
+
+3）slave重做中继日志中的事件，将数据变更反映它自己的数据
+
+```
+使用虚拟机制作mysql主从库，根据ppt内容进行环境搭建
+主库id 100 从库id 101
+
+mysql -uroot -p991116
+查看mysql的密码等级
+show variables like 'validate_password%';
+set global validate_password.policy=LOW;
+set global validate_password.length=4;
+
+创建mysql用户并赋予权限
+create user 'xiaoming'@'%' identified with mysql_native_password by '123456';
+grant all privileges ON *.* to 'xiaoming'@'%' with grant option;
+flush privileges;
+
+登录Mysql数据库，查看master同步状态,记录下结果中File和Position的值
+show master status;
+
+从库配置：
+ 
+change master to master_host='192.168.3.61',master_user='xiaoming',master_password='123456',master_log_file='mysql-bin.000005',master_log_pos=1634;
+start slave;
+show slave status;
+```
+
++ SharingJDBC
+
+Sharding-JDBC定位为轻量级Java框架，在Java的JDBC层提供的额外服务。 它使用客户端直连数据库，以jar包形式提供服务，无需额外部署和依赖，可理解为增强版的JDBC驱动，完全兼容JDBC和各种ORM框架。 
+
+使用Sharding-JDBC可以在程序中轻松的实现数据库读写分离。
+
+```
+1) 导入pom坐标
+2）数据库环境配置
+3）初始化工程导入
+4）读写分离配置yml
+5) 测试读写分离
+```
+
 + Nginx-概述
-+  Nginx-命令 
++ Nginx-命令 
 + Nginx-应用
