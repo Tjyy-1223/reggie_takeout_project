@@ -419,8 +419,8 @@ ps –ef | grep mysql							查看mysql进程
 nohup java -jar boot工程.jar &> hello.log &
 上述指令的含义为: 后台运行 java -jar 命令，并将日志输出到hello.log文件
 
-nohup java -jar helloworld-1.0-SNAPSHOT.jar &> hello.log &
-ps ef|grep java
+nohup java -jar helloworld-0.0.1-SNAPSHOT.jar &> hello2.log &
+ps -ef|grep java
 kill -9 2240
 ```
 
@@ -670,6 +670,123 @@ Sharding-JDBC定位为轻量级Java框架，在Java的JDBC层提供的额外服�
 3) 测试读写分离
 ```
 
+
+
+#### Day3:Nginx技术学习
+
 + Nginx-概述
+
+Nginx是一款轻量级的Web服务器/反向代理服务器及电子邮件(IMAP/POP3)代理服务器。其特点是占有内存 少，并发能力强，事实上nginx的并发能力在同类型的网⻚服务器中表现较好，中国大陆使用nginx的网站有:百度、京东、新浪、网易、腾讯、淘宝等。
+
+```
+yum -y install gcc pcre-devel zlib-devel openssl openssl-devel
+wget https://nginx.org/download/nginx-1.16.1.tar.gz
+tar -zxvf nginx-1.16.1.tar.gz
+
+ cd nginx-1.16.1
+./configure --prefix=/usr/local/nginx
+
+make & make install
+```
+
 + Nginx-命令 
+
+```
+1) 查看版本号
+./nginx -v
+
+2) 检查配置文件
+./nginx -t
+
+3) 启动  nginx服务启动后，默认就会有两个进程。
+./nginx
+ps -ef|grep nginx
+firewall-cmd --zone=public --add-port=80/tcp --permanent 
+firewall-cmd --reload
+
+4)停止 
+./nginx -s stop
+
+5). 重新加载
+./nginx -s reload
+```
+
++ Nginx配置文件结构
+
+```
+vim /etc/profile
+PATH=/usr/local/nginx/sbin:$JAVA_HOME/bin:$MAVEN_HOME/bin:$PATH
+source /etc/profile
+```
+
+全局块		配置和nginx运行相关的全局配置
+
+events块	配置和网络连接相关的配置
+
+http块		配置代理、缓存、日志记录、虚拟主机等配置
+
 + Nginx-应用
+
+##### **1 部署静态资源**
+
+Nginx可以作为静态web服务器来部署静态资源。这里所说的静态资源是指在服务端真实存在，并且能够直接展示的一些文件，比如常⻅的html⻚面、css文件、js文件、图片、视频等资源。
+
+相对于Tomcat，Nginx处理静态资源的能力更加高效，所以在生产环境下，一般都会将静态资源部署到Nginx中。 将静态资源部署到Nginx非常简单，只需要将文件复制到Nginx安装目录下的html目录中即可。
+
+```
+server {
+listen 80; 									#监听端口 
+server_name localhost; 			#服务器名称 
+  location / { 							#匹配客户端请求url
+  root html; 								#指定静态资源根目录
+  index index.html; 				#指定默认首⻚ 
+  }
+}
+```
+
+##### **2 反向代理**
+
+正向代理一般是在客户端设置代理服务器，通过代理服务器转发请求，最终访问到目标服务器；反向代理服务器就相当于目标服务器，即用户直接访问反向代理服务器就可以获得目标服务器的资源，反向代理服务器负责将请求转发给目标服务器。**对于用户来说，访问反向代理服务器是完全无感知的。**
+
+```
+server {
+    listen 82;
+    server_name localhost;
+    location / {
+    	proxy_pass http://192.168.3.61:8080;	#反向代理配置，将请求转发到指定服务
+    	} 
+   	}	
+当访问82端口时，根据反向代理配置，会讲请求转发到192.168.3.61:8080
+```
+
+##### **3 负载均衡**
+
+单台服务器的性能及单点故障问题，因此需要多台服务器组成应用集群，进行性能的水平扩展以及避免单点故障出现。
+
+**应用集群:**将同一应用部署到多台机器上，组成应用集群，接收负载均衡器分发的请求，进行业务处理并返回响应 数据
+
+**负载均衡器:**将用户请求根据对应的负载均衡算法分发到应用集群中的一台服务器进行处理
+
+```
+nginx配置：
+
+#upstream指令可以定义一组服务器 
+upstream targetserver{
+    server 192.168.3.61:8080;
+    server 192.168.3.62:8081;
+}
+server {
+    listen       8080;
+    server_name  localhost;
+    location / {
+        proxy_pass http://targetserver;
+    }
+}
+
+负载均衡策略 从课件中获取
+upstream targetserver{
+    server 192.168.3.61:8080 weight=10;
+    server 192.168.3.62:8081 weight=5;
+} 
+```
+
