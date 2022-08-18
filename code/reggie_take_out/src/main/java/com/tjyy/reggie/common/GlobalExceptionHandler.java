@@ -35,8 +35,8 @@ public class GlobalExceptionHandler {
     }
 
 
-    @ExceptionHandler(IOException.class)
-    public void exceptionHandler(Exception ex){
-        log.error("发生异常");
-    }
+//    @ExceptionHandler(IOException.class)
+//    public void exceptionHandler(Exception ex){
+//        log.error("发生异常");
+//    }
 }

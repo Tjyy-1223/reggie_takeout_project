@@ -790,3 +790,74 @@ upstream targetserver{
 } 
 ```
 
+
+
+#### Day4：前后端分离开发
+
++ 前后端分离开发
+
+前后端分离开发后，从工程结构上也会发生变化，即前后端代码不再混合在同一个maven工程中，而是分为 **前端工程** 和 **后端工程** 。
+
+前端 - Java代码 - 部署tomcat；前端 - html、css、js - 部署nginx
+
++ Yapi
+
+YApi让接口开发更简单高效，让接口的管理更具可读性、可维护性，让团队协作更合理。
+
+源码地址: https://github.com/YMFE/yapi
+
+官方文档: https://hellosean1025.github.io/yapi/ 
+
+要使用YApi，项目组需要自己进行部署。
+
++ Swagger
+
+官网:https://swagger.io/
+
+Swagger 是一个规范和完整的框架，用于生成、描述、调用和可视化 RESTful ⻛格的 Web 服务。功能主要包含以下几点:
+
+A. 使得前后端分离开发更加方便，有利于团队协作
+
+B. 接口文档在线自动生成，降低后端开发人员编写接口文档的负担
+
+C. 接口功能测试
+
+在项目中使用，我们一般会选择一些现成的框架来简化文档的编写，而这些框架是基于Swagger的，如 **knife4j**。**knife4j**是为Java MVC框架集成Swagger生成Api文档的增强解决方案。而我们要使用kinfe4j，需要在 pom.xml中引入如下依赖即可:
+
+```
+<dependency>
+    <groupId>com.github.xiaoymin</groupId>
+    <artifactId>knife4j-spring-boot-starter</artifactId>
+    <version>3.0.2</version>
+</dependency>
+```
+
+```
+1). 导入knife4j的maven坐标
+2). 导入knife4j相关配置类
+3). 设置静态资源映射
+4). 在LoginCheckFilter中设置不需要处理的请求路径
+
+项目页面： http://localhost:8080/doc.html
+```
+
++ Swagger 注解使用
+
+```
+@Api									类				加载Controller类上,表示对类的说明
+@ApiModel							类				描述实体类的作用
+@ApiModelProperty			属性			描述实体类的属性
+@ApiOperation					方法			说明方法的用途、作用
+@ApiImplicitParams		方法			表示一组参数说明
+@ApiImplicitParam			方法			用在@ApiImplicitParams注解中，指定一个请求参数的各个方 面的属性
+```
+
++ 项目部署
+
+PC端: 主要是为餐厅的员工及管理员使用的后台管理系统，对分类、菜品、套餐信息进行维护。
+
+移动端: 可以基于微信公众号或小程序实现，我们课上并未实现，这部分的工作是前端开发人员需要开发的。
+
+前端部署服务器: **Nginx** 
+
+后端部署服务器: **Tomcat(内嵌)**
